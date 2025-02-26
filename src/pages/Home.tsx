@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
+import { categories } from "../assets/data";
 import { fetchBooksByCategory } from "../redux/bookSlice";
 import BookList from "../components/BookList";
 
@@ -11,8 +12,15 @@ const Home: React.FC = () => {
   );
 
   useEffect(() => {
-    const categories = ["Fiction", "Mystery", "Romance", "Fantasy"];
-    categories.forEach((category) => {
+    const categoriesHome: string[] = [];
+    categories.forEach((category) =>
+      categoriesHome.push(category.categoryName)
+    );
+    console.log("categoriesHome 1", categoriesHome);
+    categoriesHome.sort();
+    console.log("categoriesHome 2", categoriesHome);
+
+    categoriesHome.forEach((category) => {
       if (!booksByCategory[category]) {
         dispatch(fetchBooksByCategory(category));
       }
@@ -22,11 +30,11 @@ const Home: React.FC = () => {
   return (
     <div className="home-section h-fit w-[90%] md:w-[69%] mb-8">
       <div className="home-container w-full h-fit ">
-        {Object.keys(booksByCategory).map((category, categoryIndex) => {
+        {Object.keys(booksByCategory).map((category, index) => {
           const books = booksByCategory[category];
 
           return (
-            <div className="books w-full h-fit pt-[30px]" key={categoryIndex}>
+            <div className="books w-full h-fit pt-[30px]" key={index}>
               <div className="home-title font-bold py-2">
                 <h3>{category}</h3>
               </div>

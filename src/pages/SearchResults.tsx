@@ -12,11 +12,13 @@ const SearchResults: React.FC = () => {
   useEffect(() => {
     window.scrollTo({ top: 650, behavior: "smooth" });
   });
+
+  console.log("searchResults", searchResults);
   return (
-    <div className="home-section">
-      <div className="home-container">
-        <div className="books">
-          <div className="home-title">
+    <div className="home-section h-fit w-[90%] md:w-[69%] mb-8">
+      <div className="home-container w-full h-fit">
+        <div className="books w-full h-fit pt-[30px]">
+          <div className="home-title font-bold py-2">
             <h3>Search Results</h3>
           </div>
           {loading ? (
@@ -24,7 +26,7 @@ const SearchResults: React.FC = () => {
           ) : error ? (
             <div className="error-message">{error}</div>
           ) : (
-            <BookList books={searchResults.slice(0, 16)} />
+            <BookList books={searchResults.slice(0, 12)} />
           )}
         </div>
       </div>

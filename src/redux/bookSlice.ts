@@ -1,7 +1,7 @@
 import { createAsyncThunk, PayloadAction, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const BASE_URL = "https://openlibrary.org";
+const API_URL = import.meta.env.VITE_API_URL;
 
 interface BookResponse {
   works: {
@@ -39,7 +39,7 @@ export const fetchBooksByCategory = createAsyncThunk(
   "books/fetchBooksByCategory",
   async (category: string) => {
     const response = await axios.get<BookResponse>(
-      `${BASE_URL}/subjects/${category.toLowerCase()}.json?limit=4`
+      `${API_URL}/subjects/${category.toLowerCase()}.json?limit=4`
     );
     return { category, books: response.data.works };
   }
@@ -48,7 +48,7 @@ export const fetchBooksByCategory = createAsyncThunk(
 export const fetchSearchResults = createAsyncThunk<SearchResult[], string>(
   "books/fetchSearchResults",
   async (query: string) => {
-    const response = await axios.get(`${BASE_URL}/search.json?q=${query}`);
+    const response = await axios.get(`${API_URL}/search.json?q=${query}`);
     return response.data.docs.map((doc: SearchResult) => ({
       title: doc.title,
       author_name: doc.author_name || [],
@@ -62,7 +62,7 @@ export const fetchBookDetails = createAsyncThunk<BookDetailsResponse, string>(
   "books/fetchBookDetails",
   async (bookId: string) => {
     const response = await axios.get<BookDetailsResponse>(
-      `${BASE_URL}/works/${bookId}.json`
+      `${API_URL}/works/${bookId}.json`
     );
     return response.data;
   }
