@@ -49,7 +49,7 @@ export const fetchSearchResults = createAsyncThunk<SearchResult[], string>(
   "books/fetchSearchResults",
   async (query: string) => {
     const response = await axios.get(`${BASE_URL}/search.json?q=${query}`);
-    return response.data.doc.map((doc: SearchResult) => ({
+    return response.data.docs.map((doc: SearchResult) => ({
       title: doc.title,
       author_name: doc.author_name || [],
       key: doc.key,

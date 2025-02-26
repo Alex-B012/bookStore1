@@ -19,6 +19,9 @@
 }
 
 .text-shadow-light {
-  @apply text-white;
   text-shadow: 1px 1px 3px rgba(24, 60, 9, 0.9);
+}
+
+.shadow-5px {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
 }
