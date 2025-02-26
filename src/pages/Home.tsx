@@ -23,10 +23,16 @@ const Home: React.FC = () => {
       <div className="home-container">
         {Object.keys(booksByCategory).map((category, categoryIndex) => {
           const books = booksByCategory[category];
+
           return (
             <div className="books" key={categoryIndex}>
               <div className="home-title">
                 <h3>{category}</h3>
+                <p>
+                  {books.map((book) => (
+                    <p>{book.title}</p>
+                  ))}
+                </p>
               </div>
             </div>
           );
