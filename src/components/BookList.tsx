@@ -19,7 +19,7 @@ interface BookListProps {
 const BookList: React.FC<BookListProps> = ({ books }) => {
   return (
     <div className="book-list full-size flex flex-row justify-center flex-wrap">
-      {books[0] && books.length > 0 ? (
+      {books.length > 0 ? (
         books.map((book, index) => {
           return (
             <Link
