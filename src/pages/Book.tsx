@@ -32,7 +32,7 @@ const Book: React.FC = () => {
       </button>
       <div className="book-details w-full h-fit flex flex-col items-center md:flex-row md:justify-center md:items-start">
         <div className="book-image w-[240px] min-w-[240px] h-[220px]">
-          {bookDetails?.covers && bookDetails?.covers.length > 0 && (
+          {bookDetails?.covers && bookDetails.covers.length > 0 && (
             <img
               src={`${VITE_COVERS_API_URL}${bookDetails.covers[0]}-M.jpg`}
               alt={bookDetails.title}
