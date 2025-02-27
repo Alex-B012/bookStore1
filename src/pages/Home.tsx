@@ -16,9 +16,8 @@ const Home: React.FC = () => {
     categories.forEach((category) =>
       categoriesHome.push(category.categoryName)
     );
-    console.log("categoriesHome 1", categoriesHome);
+
     categoriesHome.sort();
-    console.log("categoriesHome 2", categoriesHome);
 
     categoriesHome.forEach((category) => {
       if (!booksByCategory[category]) {

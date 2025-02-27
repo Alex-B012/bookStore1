@@ -17,8 +17,6 @@ interface BookListProps {
 }
 
 const BookList: React.FC<BookListProps> = ({ books }) => {
-  console.log("Books:", books);
-
   return (
     <div className="book-list full-size flex flex-row justify-center flex-wrap">
       {books.length > 0 ? (
