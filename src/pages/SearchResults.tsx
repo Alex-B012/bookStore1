@@ -24,7 +24,7 @@ const SearchResults: React.FC = () => {
           {loading ? (
             <Loading />
           ) : error ? (
-            <div className="error-message">{error}</div>
+            <div className="error-message ">{error}</div>
           ) : (
             <BookList books={searchResults.slice(0, 12)} />
           )}
