@@ -23,7 +23,7 @@ export const categories: Categories[] = [
   { id: 10, categoryName: "Philosophy" },
   { id: 11, categoryName: "Religion" },
   { id: 12, categoryName: "Romance" },
-  { id: 13, categoryName: "Science Fiction" },
+  { id: 13, categoryName: "Fiction" },
   { id: 14, categoryName: "Technology" },
 ];
 
